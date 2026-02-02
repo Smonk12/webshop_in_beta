@@ -1,4 +1,4 @@
 package webshop.tests;
 
-public class ProductDetailPageTests {
+public class ProductDetailPageTests extends BaseTest {
 }
