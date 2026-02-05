@@ -2,6 +2,7 @@ package webshop.tests;
 
 import org.junit.jupiter.api.*;
 import webshop.pages.LoginPage;
+import webshop.pages.MainPage;
 
 public class LoginPageTests extends BaseTest {
 
@@ -44,4 +45,21 @@ public class LoginPageTests extends BaseTest {
         Assertions.assertTrue(loginPage.hasErrorMessage("Epic sadface: Password is required"),
                 "Expected error message when password is empty");
     }
+
+    @Test
+    public void testLogout() {
+        loginPage.loginAs(VALID_USERNAME, VALID_PASSWORD);
+
+        MainPage mainPage = new MainPage(driver, wait);
+
+        mainPage.addItemToCartByName("Sauce Labs Backpack");
+        mainPage.addItemToCartByName("Sauce Labs Bike Light");
+
+        mainPage.logout();
+
+        Assertions.assertTrue(driver.getCurrentUrl().contains("saucedemo.com"),
+                "Expected to be redirected to login page after logout"
+        );
+    }
+
 }

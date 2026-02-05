@@ -6,14 +6,16 @@ import org.openqa.selenium.support.ui.*;
 
 public class LoginPage extends BasePage {
 
+    public LoginPage(WebDriver driver, WebDriverWait wait) {
+        super(driver, wait);
+    }
+
     private final By usernameInput = By.id("user-name");
     private final By passwordInput = By.id("password");
     private final By loginButton = By.id("login-button");
     private final By errorMessage = By.cssSelector("h3[data-test='error']");
 
-    public LoginPage(WebDriver driver, WebDriverWait wait) {
-        super(driver, wait);
-    }
+
 
     public void loginAs(String username, String password) {
         driver.findElement(usernameInput).sendKeys(username);

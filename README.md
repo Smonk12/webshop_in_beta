@@ -174,8 +174,8 @@ The project is actively under development. The current progress and planned feat
 - [x] Create BasePage and BaseTest classes using Page Object Model (POM)  
 - [x] Implement Login Page test scenarios  
 - [x] Create Jira board for project management  
-- [ ] Implement tests for product listing page (view products, sort, filter)  
-- [ ] Implement shopping cart tests (add/remove items, cart validation)  
+- [x] Implement tests for product listing page (view products, sort, filter)  
+- [ ] Implement shopping cart tests (add/remove items, cart validation)  *[IN PROGRESS]*
 - [ ] Implement checkout process and form validation tests  
 - [ ] Add tests for user logout and session handling  
 - [ ] Configure detailed test reports (HTML or CI/CD integration)  
