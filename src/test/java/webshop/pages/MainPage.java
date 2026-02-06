@@ -59,9 +59,10 @@ public class MainPage extends BasePage {
 
 
     public void openCart() {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(shoppingCartButton));
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartButton)).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("continue-shopping")));
     }
+
 
     public void addToCartByName(String name) {
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(inventoryItems));
@@ -78,10 +79,6 @@ public class MainPage extends BasePage {
 
         throw new RuntimeException("Item not found: " + name);
     }
-
-
-
-
 
 
 }

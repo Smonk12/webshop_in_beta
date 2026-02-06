@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CartPage extends BasePage {
 
-    private final By checkoutButton = By.id("checkout-button");
+    private final By checkoutButton = By.id("checkout");
     private final By cartItems = By.cssSelector("div[data-test='inventory-item']");
     private final By itemName = By.cssSelector("div[data-test='inventory-item-name']");
     private final By continueShoppingButton =  By.id("continue-shopping");
@@ -77,6 +77,9 @@ public class CartPage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(continueShoppingButton)).click();
     }
 
+    public void clickCheckout() {
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
+    }
 
 
 }

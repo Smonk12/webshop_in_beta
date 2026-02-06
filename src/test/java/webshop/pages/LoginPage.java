@@ -16,13 +16,11 @@ public class LoginPage extends BasePage {
     private final By errorMessage = By.cssSelector("h3[data-test='error']");
 
 
-
     public void loginAs(String username, String password) {
-        driver.findElement(usernameInput).sendKeys(username);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameInput)).sendKeys(username);
         driver.findElement(passwordInput).sendKeys(password);
         driver.findElement(loginButton).click();
     }
-
 
     public boolean isLoginSuccessful() {
         try {
@@ -31,7 +29,6 @@ public class LoginPage extends BasePage {
             return false;
         }
     }
-
 
     public boolean hasErrorMessage(String text) {
         try {
