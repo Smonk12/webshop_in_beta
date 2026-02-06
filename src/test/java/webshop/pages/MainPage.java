@@ -21,28 +21,14 @@ public class MainPage extends BasePage {
     private final By addToCartButton = By.cssSelector("button");
     private final By shoppingCartButton = By.cssSelector("a[data-test='shopping-cart-link']");
 
-
-    public void addItemToCartByName(String name) {
-        List<WebElement> items = driver.findElements(inventoryItems);
-
-        for (WebElement item : items) {
-            String currentName = item.findElement(itemName).getText();
-
-            if (currentName.equals(name)) {
-                item.findElement(addToCartButton).click();
-                return;
-            }
-        }
-
-        throw new RuntimeException("Item not found: " + name);
-    }
-
     public void logout() {
         wait.until(ExpectedConditions.elementToBeClickable(burgerMenu)).click();
         wait.until(ExpectedConditions.elementToBeClickable(logoutButton)).click();
     }
 
     public List<String> getAllProductNames() {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(inventoryItems));
+
         List<WebElement> items = driver.findElements(inventoryItems);
         List<String> names = new ArrayList<>();
 
@@ -53,14 +39,17 @@ public class MainPage extends BasePage {
         return names;
     }
 
+
     public void openProductByName(String name) {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(inventoryItems));
+
         List<WebElement> items = driver.findElements(inventoryItems);
 
         for (WebElement item : items) {
             String currentName = item.findElement(itemName).getText();
 
             if (currentName.equals(name)) {
-                item.findElement(itemName).click();
+                wait.until(ExpectedConditions.elementToBeClickable(item.findElement(itemName))).click();
                 return;
             }
         }
@@ -68,20 +57,28 @@ public class MainPage extends BasePage {
         throw new RuntimeException("Product not found: " + name);
     }
 
-    public void openCart()
-    {
+
+    public void openCart() {
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartButton)).click();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("continue-shopping")));
     }
 
     public void addToCartByName(String name) {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(inventoryItems));
+
         List<WebElement> items = driver.findElements(inventoryItems);
-        for(WebElement item : items) {
+        for (WebElement item : items) {
             String currentName = item.findElement(itemName).getText();
-            if(currentName.equals(name)) {
-                item.findElement(addToCartButton).click();
+            if (currentName.equals(name)) {
+                WebElement button = item.findElement(addToCartButton);
+                wait.until(ExpectedConditions.elementToBeClickable(button)).click();
+                return;
             }
         }
+
+        throw new RuntimeException("Item not found: " + name);
     }
+
 
 
 

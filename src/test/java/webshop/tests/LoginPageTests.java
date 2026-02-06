@@ -52,8 +52,8 @@ public class LoginPageTests extends BaseTest {
 
         MainPage mainPage = new MainPage(driver, wait);
 
-        mainPage.addItemToCartByName("Sauce Labs Backpack");
-        mainPage.addItemToCartByName("Sauce Labs Bike Light");
+        mainPage.addToCartByName("Sauce Labs Backpack");
+        mainPage.addToCartByName("Sauce Labs Bike Light");
 
         mainPage.logout();
 

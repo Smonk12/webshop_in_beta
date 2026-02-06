@@ -175,9 +175,9 @@ The project is actively under development. The current progress and planned feat
 - [x] Implement Login Page test scenarios  
 - [x] Create Jira board for project management  
 - [x] Implement tests for product listing page (view products, sort, filter)  
-- [ ] Implement shopping cart tests (add/remove items, cart validation)  *[IN PROGRESS]*
-- [ ] Implement checkout process and form validation tests  
-- [ ] Add tests for user logout and session handling  
+- [x] Implement shopping cart tests (add/remove items, cart validation)
+- [ ] Implement checkout process and form validation tests  *[IN PROGRESS]*
+- [ ] Add tests for user session handling  
 - [ ] Configure detailed test reports (HTML or CI/CD integration)  
 - [ ] Integrate automated tests with CI/CD pipeline for continuous execution
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

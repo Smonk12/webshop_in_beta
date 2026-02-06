@@ -1,17 +1,12 @@
 package webshop.tests;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import webshop.pages.CartPage;
 import webshop.pages.LoginPage;
 import webshop.pages.MainPage;
-
-import java.time.Duration;
 
 public class CartPageTests extends BaseTest {
 
@@ -35,20 +30,23 @@ public class CartPageTests extends BaseTest {
     }
 
     @Test
-    public void testUserCanAddAndRemoveItems() throws InterruptedException {
+    public void testUserCanAddAndRemoveItems(){
         mainPage.openCart();
         cartPage = new CartPage(driver, wait);
         cartPage.clearCart();
 
+        // Add item
         mainPage.addToCartByName("Sauce Labs Backpack");
         mainPage.openCart();
 
-
+        // Check if item is in cart
         Assertions.assertTrue(
                 cartPage.checkIfItemIsInCart("Sauce Labs Backpack"));
 
+        // Remove item
         cartPage.removeItemFromCartByName("Sauce Labs Backpack");
 
+        // Check if item is out of cart
         Assertions.assertFalse(cartPage.checkIfItemIsInCart("Sauce Labs Backpack"));
     }
 
@@ -56,24 +54,24 @@ public class CartPageTests extends BaseTest {
     public void testCartTotalPriceUpdates() {
         mainPage.openCart();
         cartPage = new CartPage(driver, wait);
-        cartPage.clearCart(); // Start with empty cart
+        cartPage.clearCart();
 
-        // Step 1: Add first product
+        // Add first product
         mainPage.addToCartByName("Sauce Labs Backpack");
         mainPage.openCart();
         Assertions.assertEquals(29.99, cartPage.getCartTotal());
+        cartPage.returnToMainPage();
 
-        // Step 2: Add second product
-        cartPage.clearCart(); // Optional: if you want to isolate, but you can just add another item
+        // Add second product
         mainPage.addToCartByName("Sauce Labs Bike Light");
         mainPage.openCart();
         Assertions.assertEquals(29.99 + 9.99, cartPage.getCartTotal());
 
-        // Step 3: Remove first product
+        // Remove first product
         cartPage.removeItemFromCartByName("Sauce Labs Backpack");
         Assertions.assertEquals(9.99, cartPage.getCartTotal());
 
-        // Step 4: Final total check
+        // Final total check
         Assertions.assertEquals(9.99, cartPage.getCartTotal());
     }
 

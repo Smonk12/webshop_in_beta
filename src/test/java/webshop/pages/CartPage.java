@@ -29,19 +29,26 @@ public class CartPage extends BasePage {
     }
 
     public void clearCart() {
-        List<WebElement> items = driver.findElements(cartItems);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(continueShoppingButton));
 
-        if(items.size()>0)
-        {
-            for (WebElement item : items) {
-                String name = item.findElement(itemName).getText();
-                removeItemFromCartByName(name);
-            }
+        while (driver.findElements(cartItems).size() > 0) {
+            List<WebElement> items = driver.findElements(cartItems);
+            String name = items.get(0).findElement(itemName).getText();
+            removeItemFromCartByName(name);
+
+            wait.until(ExpectedConditions.numberOfElementsToBeLessThan(cartItems, items.size()));
         }
+
         wait.until(ExpectedConditions.elementToBeClickable(continueShoppingButton)).click();
     }
 
+
     public boolean checkIfItemIsInCart(String name) {
+        wait.until(ExpectedConditions.or(
+                ExpectedConditions.visibilityOfElementLocated(cartItems),
+                ExpectedConditions.visibilityOfElementLocated(continueShoppingButton)
+        ));
+
         List<WebElement> items = driver.findElements(cartItems);
 
         for (WebElement item : items) {
@@ -66,7 +73,9 @@ public class CartPage extends BasePage {
         return total;
     }
 
-
+    public void returnToMainPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(continueShoppingButton)).click();
+    }
 
 
 
