@@ -12,13 +12,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
         }
         stage('Run Tests') {
             steps {
                 // Run tests in headless mode
-                sh 'mvn test -Dheadless=true'
+                bat 'mvn test -Dheadless=true'
             }
         }
         stage('Publish Reports') {
