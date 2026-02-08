@@ -25,14 +25,15 @@ pipeline {
             steps {
                 // Publish JUnit test results
                 junit 'target/surefire-reports/*.xml'
-
-                // Publish HTML report (ExtentReports or other HTML reports)
+        
+                // Publish HTML report
                 publishHTML([
-                    reportDir: 'target/extent-reports',    // path where HTML reports are generated
-                    reportFiles: 'index.html',            // main HTML file of the report
-                    reportName: 'Extent Test Report',     // name shown in Jenkins
+                    allowMissing: true,
+                    alwaysLinkToLastBuild: true,
                     keepAll: true,
-                    alwaysLinkToLastBuild: true
+                    reportDir: 'target/extent-reports',  // path where HTML reports are generated
+                    reportFiles: 'index.html',           // main HTML file of the report
+                    reportName: 'Extent Test Report'     // name shown in Jenkins
                 ])
             }
         }
