@@ -177,9 +177,9 @@ The project is actively under development. The current progress and planned feat
 - [x] Implement tests for product listing page (view products, sort, filter)  
 - [x] Implement shopping cart tests (add/remove items, cart validation)
 - [x] Implement checkout process and form validation tests
-- [ ] Integrate automated tests with CI/CD pipeline for continuous execution *[IN PROGRESS]*
-- [ ] Configure detailed test reports (HTML or CI/CD integration)  
-- [ ] Add tests for user session handling  
+- [x] Integrate automated tests with CI/CD pipeline for continuous execution 
+- [x] Configure detailed test reports (HTML or CI/CD integration)  
+- [ ] Add tests for user session handling  *[IN PROGRESS]*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
