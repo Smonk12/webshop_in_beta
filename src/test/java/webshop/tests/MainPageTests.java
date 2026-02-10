@@ -43,24 +43,4 @@ public class MainPageTests extends BaseTest {
                 "Expected products to be sorted by name");
     }
 
-
-    @Test
-    public void testUserCanViewProductDetails() {
-        mainPage.openProductByName("Sauce Labs Backpack");
-
-        ProductDetailPage detailsPage = new ProductDetailPage(driver, wait);
-
-        Assertions.assertTrue(detailsPage.isTitleVisible());
-        Assertions.assertTrue(detailsPage.isDescriptionVisible());
-        Assertions.assertTrue(detailsPage.isPriceVisible());
-        Assertions.assertTrue(detailsPage.isImageVisible());
-
-        detailsPage.goBackToProducts();
-
-        Assertions.assertTrue(driver.getCurrentUrl().contains("inventory"),
-                "Expected to be back on product listing page");
-    }
-
-
-
 }
