@@ -17,7 +17,7 @@
   <h3 align="center">Webshop In Beta</h3>
 
   <p align="center">
-    Automating test scenarios in Java using Selenium WebDriver and JUnit to validate core functionalities of a basic webshop
+    Webshop test automation project built in Selenium (Java + JUnit 5), alongside a parallel Playwright implementation to compare frameworks.
     <br />
     <a href="https://github.com/Smonk12/webshop_in_beta"><strong>Explore the docs »</strong></a>
   </p>
@@ -54,15 +54,20 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is a **test automation framework** for a basic webshop ([Sauce Demo](https://www.saucedemo.com/)). It focuses on validating core functionalities including:
+This project is a **Selenium-based test automation framework** for the Sauce Demo webshop (https://www.saucedemo.com/), designed to validate core e-commerce functionalities through end-to-end automated tests.
 
--   User login and authentication
--   Adding and removing products from the shopping cart
--   Checkout process and form validation
+The framework covers key user workflows, including:
 
-The tests are implemented in **Java** using **Selenium WebDriver** for browser automation and **JUnit 5** for test execution and assertions.
+- User login and authentication  
+- Adding and removing products from the shopping cart  
+- Checkout process and form validation  
 
-This project demonstrates a structured approach to automating end-to-end test scenarios for web applications, improving reliability and efficiency in testing workflows.
+The tests are implemented in **Java** using **Selenium WebDriver** for browser automation and **JUnit 5** for test execution and assertions, following a structured and maintainable approach (Page Object Model).
+
+Additionally, the same webshop automation project was also implemented using **Playwright** to compare modern automation frameworks and approaches.  
+Playwright version: https://github.com/Smonk12/webshop_in_beta_playwright.git
+
+This project demonstrates cross-framework automation experience, highlighting differences in setup, execution, and maintainability between Selenium and Playwright while ensuring reliable end-to-end validation of web applications.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -178,8 +183,7 @@ The project is actively under development. The current progress and planned feat
 - [x] Implement shopping cart tests (add/remove items, cart validation)
 - [x] Implement checkout process and form validation tests
 - [x] Integrate automated tests with CI/CD pipeline for continuous execution 
-- [x] Configure detailed test reports (HTML or CI/CD integration)  
-- [ ] Add tests for user session handling  *[IN PROGRESS]*
+- [x] Configure detailed test reports (HTML or CI/CD integration)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
